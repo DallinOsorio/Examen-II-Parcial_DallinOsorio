@@ -65,6 +65,7 @@
             // 
             this.ContraseñatextBox.Location = new System.Drawing.Point(152, 60);
             this.ContraseñatextBox.Name = "ContraseñatextBox";
+            this.ContraseñatextBox.PasswordChar = '*';
             this.ContraseñatextBox.Size = new System.Drawing.Size(100, 20);
             this.ContraseñatextBox.TabIndex = 3;
             this.ContraseñatextBox.Text = "200127";

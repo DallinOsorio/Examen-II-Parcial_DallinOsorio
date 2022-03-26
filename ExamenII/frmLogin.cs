@@ -37,9 +37,9 @@ namespace ExamenII
 
             MessageBox.Show("Datos Ingresados Correctamente", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            
-            frmProductos frmproductos = new frmProductos();
-            frmproductos.Show();
+            frmMenu frmMenu = new frmMenu();
+            frmMenu.Show();
+            this.Hide();
 
         }
     }

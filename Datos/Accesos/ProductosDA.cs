@@ -41,6 +41,7 @@ namespace Datos.Accesos
         }
         public bool InsertarProducto(Productos producto)
         {
+
             bool inserto = false;
             try
             {
@@ -65,8 +66,43 @@ namespace Datos.Accesos
             }
             return inserto;
         }
+        public Productos GetProductoPorCodigo(string codigo)
+        {
 
+            Productos producto = new Productos();
+            try
+            {
+
+          
+                string sql = "SELECT * FROM  producto WHERE Codigo=@Codigo;";
+
+                conn = new MySqlConnection(cadena);
+                conn.Open();
+
+                cmd = new MySqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@Codigo", codigo);
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    producto.Codigo = reader["Codigo"].ToString();
+                    producto.Descripcion = reader["Descripcion"].ToString();
+                    producto.Precio = Convert.ToDecimal(reader["Precio"]);
+                    producto.Existencia = Convert.ToInt32(reader["Existencia"].ToString());
+                }
+
+                conn.Close();
+
+            }
+            catch (Exception)
+            {
+
+            }
+            return producto;
+        }
     }
 }
+
+
 
 
